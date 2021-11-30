@@ -2,34 +2,37 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="google-site-verification" content="oSwku9GMB4WYXsTb3a-hk_-XBXmjSAe4tbPKxgi0aPc" />
-	<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.3/css/halfmoon.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-	<link rel="manifest" href="icons/site.webmanifest">
-	<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="icons/favicon.ico">
-	<meta name="msapplication-TileColor" content="#2d89ef">
-	<meta name="msapplication-config" content="icons/browserconfig.xml">
-	<meta name="theme-color" content="#9fd6f8">
-	<meta name="description" content="An intuitive web application to show the weather of a particular city for upto three days in advance. The weather data is fetched from authentic third-party sources and is believed to be true to the best of our knowledge. The developer claims no responsiblity of the data displayed on the website as it is obtained from a third-party source.">
-	<meta name=”robots” content="index, follow">
-	<meta property='og:image' content='img/showcase.jpg' />
-	<title>Weather Prediction App | A simple web application to view weather of a particular city</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="oSwku9GMB4WYXsTb3a-hk_-XBXmjSAe4tbPKxgi0aPc" />
+    <link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.3/css/halfmoon.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#9fd6f8">
+    <meta name="description"
+        content="An intuitive web application to show the weather of a particular city for upto three days in advance. The weather data is fetched from authentic third-party sources and is believed to be true to the best of our knowledge. The developer claims no responsiblity of the data displayed on the website as it is obtained from a third-party source.">
+    <meta name=”robots” content="index, follow">
+    <meta property='og:image' content='img/showcase.jpg' />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    <title>Weather WebApp | A simple web application to view weather of a particular city</title>
 </head>
 
 <body data-set-preferred-theme-onload="true">
 
-	<div class="modal" id="locModal" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<a href="#" class="close" role="button" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+
+    <div class="modal" id="locModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" role="button" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </a>
                     <h5 class="modal-title">Change Location</h5>
                 </div>
@@ -163,8 +166,7 @@
     <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
         <nav class="navbar">
             <div class="container">
-                <a href="#" class="navbar-brand">Weather</a>
-                <span class="navbar-text badge badge-pill badge-danger">v3.0</span>
+                <a href="#" class="navbar-brand">Weather Forecast App</a>
                 <div class="navbar-content ml-auto">
                     <a class="nav-link" id="themeChanger" onclick="halfmoon.toggleDarkMode()">
                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-sun" fill="currentColor"
@@ -381,7 +383,24 @@
                 </div>
             </div>
 
+            <div class="modal" id="modal-1" tabindex="-1" role="dialog">
+                <div class="modal-dialog mw-full" role="document">
+                    <div class="modal-content modal-content-media w-600">
+                        <!-- <! chart.js -->
+                        <div id="chart">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                        <!-- <! -->
+                    </div>
+                </div>
+            </div>
+            <div id="graph-button">
+                <a href="#modal-1" class="btn btn-success" role="button">Chart for Today's Temp </a>
+            </div>
         </div>
+
+
+
         <footer class="navbar navbar-fixed-bottom">
             <div class="toTop" style="opacity: 0;" data-toggle="tooltip" data-title="Go to top"></div>
             <div class="container justify-content-center">
@@ -397,6 +416,8 @@
             </div>
         </footer>
     </div>
+
+
 
     <!-- Halfmoon JS -->
     <script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.3/js/halfmoon.min.js"></script>
